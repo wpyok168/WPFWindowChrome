@@ -3,8 +3,8 @@
                     xmlns:fa5="http://schemas.fontawesome.com/icons/"
                     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
                     >
-    <Style x:Key="WindowStyle"
-           TargetType="Window">
+    <Style x:Key="WindowStyle" TargetType="Window">
+        <Setter Property="DataContext" Value="{DynamicResource winvm}"></Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Window">

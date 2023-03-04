@@ -11,9 +11,11 @@
         Style="{StaticResource WindowStyle}"
         Background="white"
         Title="MainWindow" Height="450" Width="800">
+    <!--
     <Window.DataContext>
         <local:WindowStyleViewModel></local:WindowStyleViewModel>
     </Window.DataContext>
+    -->
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="40" CornerRadius="10" GlassFrameThickness="0" />
         <!--

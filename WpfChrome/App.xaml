@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WpfChrome"
              xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -10,7 +11,10 @@
                 <ResourceDictionary Source=".\WidowStyleFolder\Colors.xaml" />
                 <ResourceDictionary Source=".\WidowStyleFolder\TextBolckStyles.xaml" />
                 <ResourceDictionary Source=".\WidowStyleFolder\ButtonStyles.xaml" />
-                <ResourceDictionary Source=".\WidowStyleFolder\WindowStyles.xaml" />
+                <ResourceDictionary Source=".\WidowStyleFolder\WindowStyles.xaml" >
+                    <!--d:IsDataSource="True"  可不用  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" -->
+                    <vm:WindowStyleViewModel xmlns:vm="clr-namespace:WpfChrome" x:Key="winvm" d:IsDataSource="True"></vm:WindowStyleViewModel>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
             <!--
             <FontFamily x:Key="FontAwesome">./fonts/fontawesome-webfont.ttf#FontAwesome</FontFamily>
