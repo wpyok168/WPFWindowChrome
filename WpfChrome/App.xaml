@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WpfChrome"
              xmlns:fa5="http://schemas.fontawesome.com/icons/"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -13,8 +13,12 @@
                 <ResourceDictionary Source=".\WidowStyleFolder\ButtonStyles.xaml" />
                 <ResourceDictionary Source=".\WidowStyleFolder\WindowStyles.xaml" >
                     <!--d:IsDataSource="True"  可不用  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" -->
-                    <vm:WindowStyleViewModel xmlns:vm="clr-namespace:WpfChrome" x:Key="winvm" d:IsDataSource="True"></vm:WindowStyleViewModel>
+                    <vm:WindowStyleViewModel xmlns:vm="clr-namespace:WpfChrome" x:Key="winvm" ></vm:WindowStyleViewModel>
                 </ResourceDictionary>
+
+                <!--Material Designin-->
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <!--
             <FontFamily x:Key="FontAwesome">./fonts/fontawesome-webfont.ttf#FontAwesome</FontFamily>
