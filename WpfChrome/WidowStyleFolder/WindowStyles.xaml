@@ -1,0 +1,90 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:fa5="http://schemas.fontawesome.com/icons/"
+                    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+                    >
+    <Style x:Key="WindowStyle"
+           TargetType="Window">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Window">
+                    <Border Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <!--<Grid Name="TitleBarColor" Background="{StaticResource TitleBarColor}">-->
+                            <Grid Name="TitleBarColor" Background="{Binding TitleBarColor}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{TemplateBinding Icon}" Grid.Column="0" Height="25" Width="25"  HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="20,0,0,0"></Image>
+                                <!-- 标题图标
+                                <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="10,0,0,0">
+                                    
+                                    <TextBlock  HorizontalAlignment="Left" Margin="10,0,0,0" FontSize="12">
+                                        <ContentControl  Foreground="White">
+                                            <fa5:ImageAwesome Icon="Solid_ShieldAlt"></fa5:ImageAwesome>
+                                        </ContentControl>
+                                    </TextBlock>
+                                    
+                                    <TextBlock Text="{TemplateBinding Title}" Style="{StaticResource TextBolckStyle}" HorizontalAlignment="Left">
+                                    </TextBlock>
+                                   
+                                </StackPanel>
+                                 -->
+                                <TextBlock Grid.Column="1"
+                                           Text="{TemplateBinding Title}"
+                                           Style="{StaticResource TextBolckStyle}"
+                                           HorizontalAlignment="Center" />
+                                <StackPanel Grid.Column="2"
+                                            Orientation="Horizontal"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
+                                            WindowChrome.IsHitTestVisibleInChrome="True">
+                                    <ComboBox Name="mycombox" HorizontalAlignment="Right" ItemsSource="{Binding ColorPropertyInfo}">
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <Rectangle Fill="{Binding Name}" Height="15" Width="15" StrokeThickness="0"></Rectangle>
+                                                    <!--
+                                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                                    -->
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="SelectionChanged">
+                                                <i:InvokeCommandAction Command="{Binding TitleBackGroundChangeCommand}" CommandParameter="{Binding ElementName=mycombox, Path=SelectedItem}"></i:InvokeCommandAction>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </ComboBox>
+                                    <Button fa5:Awesome.Content="Solid_WindowMinimize"  FontSize="18" TextElement.FontFamily="{DynamicResource FontAwesome}"
+                                            Style="{StaticResource ButtonStyle}"
+                                            Command="{Binding MinimizeCommand}"
+                                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+                                    <Button fa5:Awesome.Content="Regular_WindowMaximize"  FontSize="18" TextElement.FontFamily="{DynamicResource FontAwesome}"
+                                            Style="{StaticResource ButtonStyle}"
+                                            Command="{Binding MaximizeCommand}"
+                                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+                                    <Button fa5:Awesome.Content="Solid_WindowClose"  FontSize="18" TextElement.FontFamily="{DynamicResource FontAwesome}"
+                                            Style="{StaticResource ButtonStyle}"
+                                            Command="{Binding CloseCommand}"
+                                            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" />
+                                </StackPanel>
+                            </Grid>
+
+                            <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,24 @@
+﻿<Application x:Class="WpfChrome.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfChrome"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source=".\WidowStyleFolder\Colors.xaml" />
+                <ResourceDictionary Source=".\WidowStyleFolder\TextBolckStyles.xaml" />
+                <ResourceDictionary Source=".\WidowStyleFolder\ButtonStyles.xaml" />
+                <ResourceDictionary Source=".\WidowStyleFolder\WindowStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!--
+            <FontFamily x:Key="FontAwesome">./fonts/fontawesome-webfont.ttf#FontAwesome</FontFamily>
+            -->
+            <FontFamily x:Key="FontAwesome">pack://application:,,,/FontAwesome.WPF;component/#FontAwesome</FontFamily>
+            <fa5:LabelConverter x:Key="LabelConverter" />
+            <fa5:StyleConverter x:Key="StyleConverter" />
+            <fa5:ImageSourceConverter x:Key="ImageSourceConverter" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
